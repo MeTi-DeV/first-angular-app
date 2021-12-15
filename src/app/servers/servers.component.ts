@@ -9,17 +9,21 @@ import { Component, OnInit } from '@angular/core';
 export class ServersComponent implements OnInit {
   allowNewServer = false;
   serverName = '';
+  createServer = false;
   newCreateServerStatus = 'New Server Not Created !';
+  servers = ['Test 1', 'Test 2'];
   constructor() {
     setTimeout(() => {
       this.allowNewServer = true;
     }, 2000);
   }
   onCreateServer() {
-    this.newCreateServerStatus = 'New Server Created ! Server name is : ' + this.serverName;
+    this.servers.push(this.serverName);
+    this.createServer = true;
+    this.newCreateServerStatus =
+      'New Server Created ! Server name is : ' + this.serverName;
   }
-  // comment 1 : create new function to get values from user and pass to serverName
-  // for call this function in <Input (input)> for (input) call this function
+
   onUpdateServer(event: Event) {
     this.serverName = (<HTMLInputElement>event.target).value;
   }
