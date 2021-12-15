@@ -1,10 +1,19 @@
-<div class="container">
+<app-servers></app-servers><div class="container">
   <div class="row">
     <div class="col-xs-12">
       <h3>my first AngularApp</h3>
       <hr />
-      <app-servers></app-servers>
+      <input type="text" class="form-control" [(ngModel)]="userName" />
+      <p>{{ userName }}</p>
+      <!-- comment  Assignment new input and reset data easily -->
+      <button
+        class="btn btn-primary"
+        [disabled]="userName === ''"
+        (click)="userName = ''"
+      >
+        Reset Data
+      </button>
+
     </div>
   </div>
 </div>
-
