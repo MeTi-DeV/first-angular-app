@@ -1,10 +1,9 @@
 <label>Server Name</label>
 <!-- <input type="text" class="form-control" (input)="onUpdateServer($event)" /> -->
 
-<!-- there is two way to binding is to use ngModel it's better than (input) -->
-<input class="form-control" type="text" [(ngModel)]="serverName"/>
+<input class="form-control" type="text" [(ngModel)]="serverName" />
 <br />
-<p>{{ serverName }}</p>
+
 <br />
 <button
   class="btn btn-primary"
@@ -15,6 +14,8 @@
 </button>
 <br />
 <br />
-<p>{{ newCreateServerStatus }}</p>
-<app-server></app-server>
-<app-server></app-server>
+<!-- comment 1 : ngIf is with * because its instructions in DOM and is same to if statement -->
+<p *ngIf="createServer">New Server was successfully created {{serverName}}</p>
+<!-- comment 2 : ngFor is like ngIf it too instructions in DOM and should start with * its look like for loop and show list of servers to us -->
+<app-server *ngFor="let server of servers "></app-server>
+
