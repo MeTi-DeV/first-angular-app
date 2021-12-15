@@ -8,17 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServersComponent implements OnInit {
   allowNewServer = false;
-  newCreateServerStatus = 'New Server Not Created !'
+  serverName = '';
+  newCreateServerStatus = 'New Server Not Created !';
   constructor() {
     setTimeout(() => {
       this.allowNewServer = true;
     }, 2000);
   }
-  //comment 1 : an other topic in data binding is Event topic
-  // here create a function to onclickable button and show an Event on Webpage
-  onCreateServer(){
-
-this.newCreateServerStatus="New Server Created !";
-}
+  onCreateServer() {
+    this.newCreateServerStatus = 'New Server Created ! Server name is : ' + this.serverName;
+  }
+  // comment 1 : create new function to get values from user and pass to serverName
+  // for call this function in <Input (input)> for (input) call this function
+  onUpdateServer(event: Event) {
+    this.serverName = (<HTMLInputElement>event.target).value;
+  }
   ngOnInit(): void {}
 }

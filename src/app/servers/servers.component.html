@@ -1,10 +1,14 @@
-<!-- comment 1 : here use data binding ts file do some logics and binding that to html file this process
-will done in browser DOM -->
-<!-- comment 2 :call onclickable function to click attribute -->
+<label>Server Name</label>
+<!-- <input type="text" class="form-control" (input)="onUpdateServer($event)" /> -->
+
+<!-- there is two way to binding is to use ngModel it's better than (input) -->
+<input class="form-control" type="text" [(ngModel)]="serverName"/>
+<br />
+<p>{{ serverName }}</p>
+<br />
 <button
   class="btn btn-primary"
   [disabled]="!allowNewServer"
-
   (click)="onCreateServer()"
 >
   Add Server
