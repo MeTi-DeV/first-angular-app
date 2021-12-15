@@ -3,8 +3,19 @@
     <div class="col-xs-12">
       <h3>my first AngularApp</h3>
       <hr />
-
       <app-servers></app-servers>
+      <br />
+      <button class="btn btn-primary" (click)="onToggleAddItem()">
+        Displa Details
+      </button>
+      <p *ngIf="showDetails">it's a secret massage</p>
+      <div
+        *ngFor="let logItem of log"
+        [ngStyle]="{ backgroundColor: logItem >= 5 ? 'blue' : 'transparent' }"
+        [ngClass]="{ 'white-text': logItem >= 5 }"
+      >
+        {{ logItem }}
+      </div>
     </div>
   </div>
 </div>
