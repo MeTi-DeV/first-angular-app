@@ -1,6 +1,4 @@
-<!-- comment 1 : ngStyle is one of Directive to use on Elements we want to set specific style properties
-here as backgroundColor I pass a JS function it's one of ways to match JS and CSS
-comment 2 : ngClass is for pass css class as key and set logic as value for each key value-->
+
 <p
   [ngStyle]="{ backgroundColor: getColor() }"
   [ngClass]="{ online: serverStatus === 'online' }"
